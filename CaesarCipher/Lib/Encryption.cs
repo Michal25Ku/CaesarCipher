@@ -17,7 +17,7 @@ namespace CaesarCipher.Lib
 
         public void Encrypt(string text, int move, ref string cryptogram)
         {
-            var letters = text.ToCharArray();
+            var letters = text.Where(l => char.IsLetter(l) || char.IsNumber(l)).ToArray();
             var encryptedText = new char[text.Length];
 
             for (int i = 0; i < letters.Length; i++)

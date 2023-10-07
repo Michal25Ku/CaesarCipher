@@ -25,13 +25,14 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
+            <Grid Grid.Row="0" Grid.ColumnSpan="3" Background="LightBlue"/>
             <TextBlock Text="Encryption" Grid.ColumnSpan="3" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
             <TextBlock Grid.Row="1" Text="Your text to encrypton: " FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10"/>
             <TextBox Text="{Binding TextToEncryption, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Grid.Column="1" Height="40" Width="300" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10"/>
 
             <TextBlock Grid.Row="2" Text="Cryptogram text: " FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10"/>
-            <TextBlock Text="{Binding CryptogramText}" Grid.Row="2" Grid.Column="1" Height="40" Width="300" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10"/>
+            <TextBox IsReadOnly="true" Text="{Binding CryptogramText}" Grid.Row="2" Grid.Column="1" Height="40" Width="300" VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" BorderThickness="0"/>
 
             <Grid Grid.Column="2" Grid.Row="1" Grid.RowSpan="2">
                 <Grid.ColumnDefinitions>
@@ -45,10 +46,10 @@
                 </Grid.RowDefinitions>
 
                 <Slider Orientation="Vertical" Grid.RowSpan="2" HorizontalAlignment="Center" 
-                    Margin="10, 0" VerticalAlignment="Center" Height="120" Minimum="34" Maximum="1"/>
+                    Margin="10, 0" VerticalAlignment="Center" Height="120" Minimum="0" Maximum="{Binding MaximunNumberOfMoves}" Value="{Binding NumberOfMoveEncryption, UpdateSourceTrigger=PropertyChanged}"/>
                 
                 <TextBlock Text="Move" Grid.Column="1" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10"/>
-                <TextBlock Text="{Binding NumberOfMoveEncryption, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Grid.Column="1" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5"/>
+                <TextBlock Text="{Binding MoveNumberEncryption, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Grid.Column="1" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5"/>
 
             </Grid>
         </Grid>
@@ -66,13 +67,14 @@
                 <ColumnDefinition/>
             </Grid.ColumnDefinitions>
 
+            <Grid Grid.Row="0" Grid.ColumnSpan="3" Background="LightBlue"/>
             <TextBlock Text="Decryption" Grid.ColumnSpan="3" FontSize="40" HorizontalAlignment="Center" VerticalAlignment="Center"/>
 
             <TextBlock Grid.Row="1" Text="Cryptogram text: " FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10"/>
-            <TextBox Grid.Row="1" Grid.Column="1" Height="40" Width="300" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10"/>
+            <TextBox Text="{Binding TextToDecryption, UpdateSourceTrigger=PropertyChanged}" Grid.Row="1" Grid.Column="1" Height="40" Width="300" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" />
 
             <TextBlock Grid.Row="2" Text="Deciphered text: " FontSize="20" HorizontalAlignment="Right" VerticalAlignment="Center" Margin="10"/>
-            <TextBlock Text="{Binding DecipheredText}" Grid.Row="2" Grid.Column="1" Height="40" Width="300" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10"/>
+            <TextBox IsReadOnly="True" Text="{Binding ExplicitText, UpdateSourceTrigger=PropertyChanged}" Grid.Row="2" Grid.Column="1" Height="40" Width="300" VerticalContentAlignment="Center" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="10" BorderThickness="0"/>
 
             <Grid Grid.Column="2" Grid.Row="1" Grid.RowSpan="2">
                 <Grid.ColumnDefinitions>
@@ -86,7 +88,7 @@
                 </Grid.RowDefinitions>
 
                 <Slider Orientation="Vertical" Grid.RowSpan="2" HorizontalAlignment="Center" 
-                    Margin="10, 0" VerticalAlignment="Center" Height="120" Minimum="34" Maximum="1"/>
+                    Margin="10, 0" VerticalAlignment="Center" Height="120" Minimum="0" Maximum="{Binding MaximunNumberOfMoves}" Value="{Binding NumberOfMoveDecryption, UpdateSourceTrigger=PropertyChanged}"/>
 
                 <TextBlock Text="Move" Grid.Column="1" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Bottom" Margin="10"/>
                 <TextBlock Text="{Binding NumberOfMoveDecryption}" Grid.Row="1" Grid.Column="1" FontSize="20" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="5"/>
